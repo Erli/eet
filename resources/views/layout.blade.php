@@ -64,6 +64,7 @@
             body.printOrder .modal-dialog .modal-content .modal-body,
             body.printOrder .modal-dialog .modal-content .modal-body * {
                 visibility: visible;
+                font-size: 20pt;
             }
             body.printOrder .modal-dialog {
                 position: absolute;
