@@ -17,16 +17,12 @@
 
     <!-- Styles -->
     <style>
-        @page{
-            size: 58mm auto;
-        }
         html, body {
             padding: 45px;
             background-color: #fff;
             color: #000;
             font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            height: 100vh;
+            font-weight: 400;
             margin: 0;
         }
 
@@ -40,10 +36,15 @@
             text-transform: uppercase;
         }
 
-        .m-b-md {
-            margin-bottom: 30px;
-        }
         @media print {
+            table{
+                width:300mm;
+
+            }
+            td{
+                font-size: 48pt !important;
+            }
+
 
             body.printOrder * {
                 visibility: hidden;
@@ -54,24 +55,23 @@
                 {
                     display: none !important;
                 }
+
             }
 
             body.printOrder .modal-dialog .modal-content {
-                border-width: 0;
+                width: 100vw;                 border-width: 0;
             }
 
             body.printOrder .modal-dialog .modal-content .modal-header .modal-title,
             body.printOrder .modal-dialog .modal-content .modal-body,
             body.printOrder .modal-dialog .modal-content .modal-body * {
                 visibility: visible;
-                font-size: 20pt;
+
             }
             body.printOrder .modal-dialog {
-                position: absolute;
                 padding: 0;
                 margin: 0;
-                left: 0;
-                top: 0;
+                width:300mm;
             }
             body.printOrder .modal-dialog .modal-content .modal-header,
             body.printOrder .modal-dialog .modal-content .modal-body {
