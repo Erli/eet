@@ -17,6 +17,9 @@
 
     <!-- Styles -->
     <style>
+        @page{
+            size: 58mm;
+        }
         html, body {
             padding: 45px;
             background-color: #fff;
@@ -41,6 +44,7 @@
             margin-bottom: 30px;
         }
         @media print {
+
             body.printOrder * {
                 visibility: hidden;
             }
