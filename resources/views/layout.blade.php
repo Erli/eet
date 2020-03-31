@@ -65,7 +65,13 @@
             body.printOrder .modal-dialog .modal-content .modal-body * {
                 visibility: visible;
             }
-
+            body.printOrder .modal-dialog {
+                position: absolute;
+                padding: 0;
+                margin: 0;
+                left: 0;
+                top: 0;
+            }
             body.printOrder .modal-dialog .modal-content .modal-header,
             body.printOrder .modal-dialog .modal-content .modal-body {
                 padding: 0;
