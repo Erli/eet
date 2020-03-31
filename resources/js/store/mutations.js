@@ -38,8 +38,15 @@ let mutations = {
         state.order_items.splice(index, 1)
     },
     SAVE_ORDER(state, items) {
-        console.log('save_order');
+
         return state.order_items = items;
-    }
+    },
+    FETCH_ORDERS(state, items) {
+        return state.orders = items
+    },
+
+    PRINT_ORDER(state, item) {
+        state.modal = item;
+    },
 }
 export default mutations

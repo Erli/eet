@@ -99,7 +99,26 @@ let actions = {
             }).catch(err => {
             console.log(err)
         })
-    }
+    },
+    fetchOrders({commit}) {
+        axios.get('/api/orders')
+            .then(res => {
+                commit('FETCH_ORDERS', res.data)
+            }).catch(err => {
+            console.log(err)
+        })
+    },
+    printOrder({commit},item) {
+
+        axios.get('/api/order/'+item.order_id)
+            .then(res => {
+                commit('PRINT_ORDER', res.data)
+
+            }).catch(err => {
+            console.log(err)
+        })
+
+    },
 
 }
 export default actions

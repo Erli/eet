@@ -27,34 +27,6 @@
             margin: 0;
         }
 
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
         .links > a {
             color: #636b6f;
             padding: 0 25px;
@@ -68,10 +40,47 @@
         .m-b-md {
             margin-bottom: 30px;
         }
+        @media print {
+            body.printOrder * {
+                visibility: hidden;
+            }
+            @media print
+            {
+                .no-print, .no-print *
+                {
+                    display: none !important;
+                }
+            }
+            body.printOrder .modal-dialog {
+                position: absolute;
+                padding: 0;
+                margin: 0;
+                left: 0;
+                top: 0;
+            }
+
+            body.printOrder .modal-dialog .modal-content {
+                border-width: 0;
+            }
+
+            body.printOrder .modal-dialog .modal-content .modal-header .modal-title,
+            body.printOrder .modal-dialog .modal-content .modal-body,
+            body.printOrder .modal-dialog .modal-content .modal-body * {
+                visibility: visible;
+            }
+
+            body.printOrder .modal-dialog .modal-content .modal-header,
+            body.printOrder .modal-dialog .modal-content .modal-body {
+                padding: 0;
+            }
+
+            body.printOrder .modal-dialog .modal-content .modal-header .modal-title {
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body>
-{{--<div class="flex-center position-ref full-height">--}}
 <nav class="navbar navbar-expand-sm bg-light">
 
     <!-- Links -->
@@ -83,7 +92,7 @@
             <a class="nav-link" href="{{ route('items') }}">Položky</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Link 3</a>
+            <a class="nav-link" href="{{ route('orders') }}">Objednávky</a>
         </li>
     </ul>
 
@@ -92,8 +101,12 @@
     @yield('content')
 </div>
 
-{{--</div>--}}
 
 <script async src="{{mix('js/app.js')}}"></script>
+<script>
+
+
+
+</script>
 </body>
 </html>

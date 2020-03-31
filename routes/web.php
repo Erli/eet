@@ -17,6 +17,8 @@ Route::get('/', function()
 });
 Route::get('/posts/', 'PostController@index')->name('posts');
 Route::get('/item/', 'ItemController@index')->name('items');
+Route::get('/orders/', 'OrderController@index')->name('orders');
+Route::get('/orders/{id}', 'OrderController@detail')->where('id', '[0-9]+')->name('order-detail');
 
 
 

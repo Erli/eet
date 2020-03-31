@@ -2,17 +2,13 @@
 
 
 @section('content')
+
     <div class="container">
         <div class="row">
-            <div class="col-md-7">
-                <items></items>
-
+            <div class="col-md-12">
+                <orders></orders>
             </div>
         </div>
-        <edit-item></edit-item>
-        <create-item></create-item>
         <print-order></print-order>
-
     </div>
-
 @stop

@@ -10,6 +10,9 @@ let getters = {
      },
     order_items: state => {
          return state.order_items
+     },
+    orders: state => {
+         return state.orders
      }
 }
 export default  getters

@@ -29,7 +29,8 @@ Route::post('order-items', 'OrderItemController@store');
 Route::delete('order-items/{id}', 'OrderItemController@delete');
 
 Route::post('order', 'OrderController@store');
-
+Route::get('orders', 'OrderController@get');
+Route::get('order/{id}', 'OrderController@getById');
 
 Route::post('items', 'ItemController@store');
 Route::post('item/update', 'ItemController@update');

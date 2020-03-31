@@ -2,37 +2,40 @@
     <div>
         <div class="row mb-3 mt-3">
             <div class="col-12 d-flex justify-content-between">
-                <h4 class="text-center font-weight-bold">Položky
+                <h4 class="text-center font-weight-bold">Objednávky
                 </h4>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createItem">
-                    <i style="color:white" class="fa fa-plus"></i>
-                </button>
             </div>
         </div>
         <table class="table table-striped">
             <thead>
             <tr>
-                <th scope="col">Název</th>
+                <th scope="col">Datum</th>
                 <th scope="col">Cena</th>
-                <th scope="col">Akce</th>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="item in items">
-                <td>{{item.title}}</td>
-                <td>{{item.price}}</td>
-                <td>
-                    <button class="btn btn-danger" @click="deleteItem(item)"><i style="color:white" class="fa fa-trash"></i></button>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" @click="initForm(item.id)">
-                        <i style="color:white" class="fa fa-edit"></i>
+            <tr v-for="item in orders">
+
+                <td class="text-right">{{ new Date(item.created_at) | dateFormat('H:mm DD.MMMM', dateFormatConfig) }}</td>
+                <td class="text-right">{{ item.price| toCurrency }}</td>
+                <td class="text-right">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#printOrder" @click="printOrder(item)">
+                        <i style="color:white" class="fa fa-receipt"></i>
                     </button>
+
                 </td>
             </tr>
             </tbody>
+            <tfoot>
+            <tr v-if="orders.length">
+                <td></td>
+                <td class="text-right">
+                   <strong> {{ calculateSum(orders) | toCurrency }} </strong>
+                </td>
+            </tr>
+
+            </tfoot>
         </table>
-
-
-
     </div>
 
 </template>
@@ -41,21 +44,27 @@
     import {mapGetters} from 'vuex'
 
     export default {
-        name: "Items",
+        name: "Orders",
         mounted() {
-            this.$store.dispatch('fetchItems')
+            this.$store.dispatch('fetchOrders')
         },
         methods: {
-            deleteItem(item) {
-                this.$store.dispatch('deleteItem',item)
+            printOrder(item) {
+                this.$store.dispatch('printOrder',item)
             },
-            initForm(item) {
-                this.$store.dispatch('initForm',item)
+            calculateSum(orders) {
+                var sum = 0;
+                for (let value in orders) {
+                    sum += orders[value].price
+                }
+                return sum;
             }
         },
+
         computed: {
             ...mapGetters([
-                'items'
+                'orders',
+                'modal'
             ])
         },
         data(){
@@ -79,9 +88,12 @@
                 }
             }
         }
+
     }
 </script>
 
 <style scoped>
-
+    .table th, .table td{
+        padding: 0 0.75rem;
+    }
 </style>

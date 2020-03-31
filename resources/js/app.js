@@ -15,24 +15,38 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
 import store from './store/index'
+import VueFilterDateFormat from 'vue-filter-date-format';
+import moment from 'moment'
+
+Vue.use(VueFilterDateFormat);
 
 Vue.component('posts', require('./components/Posts.vue'))
 Vue.component('items', require('./components/items/Items.vue'))
 Vue.component('itemsCart', require('./components/items/ItemsCart.vue'))
 Vue.component('orderItems', require('./components/orders/OrderItems.vue'))
+Vue.component('orders', require('./components/orders/Orders.vue'))
+Vue.component('printOrder', require('./components/orders/PrintOrder.vue'))
 Vue.component('createItem', require('./components/items/CreateItem.vue'))
 Vue.component('editItem', require('./components/items/EditItem.vue'))
 Vue.component('createPost', require('./components/CreatePost.vue'))
+Vue.filter('formatDate', function(value) {
+    if (value) {
+        return moment(String(value)).format('MM.DD.YYYY')
+    }
+});Vue.filter('formatTime', function(value) {
+    if (value) {
+        return moment(String(value)).format('hh:mm')
+    }
+});
 
 const app = new Vue({
     el: '#app',
     store
 });
 
+
 window.Vue.filter('toCurrency', function (value) {
-    console.log(value)
     if (typeof value !== "number") {
         return value +',- Kč';
     }

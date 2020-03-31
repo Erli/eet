@@ -68,6 +68,7 @@
             },
             saveOrder(order_items){
                 this.$store.dispatch('saveOrder', order_items)
+               // this.$store.dispatch('printOrder', order_items)
             }
         },
 
