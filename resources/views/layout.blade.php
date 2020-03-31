@@ -18,12 +18,12 @@
     <!-- Styles -->
     <style>
         @page{
-            size: 58mm;
+            size: 58mm auto;
         }
         html, body {
             padding: 45px;
             background-color: #fff;
-            color: #636b6f;
+            color: #000;
             font-family: 'Nunito', sans-serif;
             font-weight: 200;
             height: 100vh;
@@ -31,7 +31,7 @@
         }
 
         .links > a {
-            color: #636b6f;
+            color: #000;
             padding: 0 25px;
             font-size: 12px;
             font-weight: 600;
@@ -54,13 +54,6 @@
                 {
                     display: none !important;
                 }
-            }
-            body.printOrder .modal-dialog {
-                position: absolute;
-                padding: 0;
-                margin: 0;
-                left: 0;
-                top: 0;
             }
 
             body.printOrder .modal-dialog .modal-content {
