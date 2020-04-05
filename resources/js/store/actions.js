@@ -109,9 +109,11 @@ let actions = {
         })
     },
     printOrder({commit},item) {
-
+console.log(item.order_id);
         axios.get('/api/order/'+item.order_id)
             .then(res => {
+
+                console.log( res.data)
                 commit('PRINT_ORDER', res.data)
 
             }).catch(err => {
