@@ -88,7 +88,6 @@
             body.printOrder .modal-dialog .modal-content .modal-header,
             body.printOrder .modal-dialog .modal-content .modal-body {
                 padding: 0;
-                height: 90000mm;
                 display: inline-block;
             }
 

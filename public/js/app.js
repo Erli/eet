@@ -67505,8 +67505,7 @@ var actions = {
     printOrder: function printOrder(_ref14, item) {
         var commit = _ref14.commit;
 
-        console.log(item.order_id);
-        axios.get('/api/order/' + item.order_id).then(function (res) {
+        axios.get('/api/get-order/' + item.order_id).then(function (res) {
 
             console.log(res.data);
             commit('PRINT_ORDER', res.data);

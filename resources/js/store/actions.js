@@ -109,8 +109,7 @@ let actions = {
         })
     },
     printOrder({commit},item) {
-console.log(item.order_id);
-        axios.get('/api/order/'+item.order_id)
+        axios.get('/api/get-order/'+item.order_id)
             .then(res => {
 
                 console.log( res.data)
