@@ -38,8 +38,9 @@ let mutations = {
         state.order_items.splice(index, 1)
     },
     SAVE_ORDER(state, items) {
-
-        return state.order_items = items;
+console.log(items);
+        state.modal = items;
+        return state.order_items = [];
     },
     FETCH_ORDERS(state, items) {
         return state.orders = items

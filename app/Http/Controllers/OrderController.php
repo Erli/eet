@@ -67,8 +67,7 @@ class OrderController extends Controller
         $order->price = $sum;
         $order->save();
         $this->saveOrder($order);
-        $om = new OrderItemController();
-        return response()->json($order->id);
+        return $this->getById($order->id);
     }
 
     public function saveOrder($order)

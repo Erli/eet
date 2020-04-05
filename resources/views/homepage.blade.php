@@ -11,6 +11,7 @@
             </div>
         </div>
         <create-item></create-item>
+        <print-order></print-order>
     </div>
 
 @stop

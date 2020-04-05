@@ -37,8 +37,10 @@
         </table>
         <div class="row">
             <div  class="col-12">
-                <button class="btn btn-success" @click="saveOrder(order_items)">Zaplatit</button>
+                <button class="btn btn-success"  data-toggle="modal" data-target="#printOrder" @click="saveOrder(order_items)">
+                    <i style="color:white" class="fa fa-receipt"></i> Zaplatit
 
+                </button>
             </div>
         </div>
 
@@ -74,7 +76,8 @@
 
         computed: {
             ...mapGetters([
-                'order_items'
+                'order_items',
+                'modal'
             ])
         }
     }
