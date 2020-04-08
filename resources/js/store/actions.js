@@ -101,7 +101,7 @@ let actions = {
         })
     },
     fetchOrders({commit}) {
-        axios.get('/api/orders')
+        axios.get('/api/order')
             .then(res => {
                 commit('FETCH_ORDERS', res.data)
             }).catch(err => {
